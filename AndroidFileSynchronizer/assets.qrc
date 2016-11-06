@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/ui_descriptor.cui</file>
+        <file>assets/fonts/Code New Roman b.otf</file>
+        <file>assets/fonts/Code New Roman.otf</file>
+        <file>assets/fonts/Entypo.otf</file>
+        <file>assets/icons/fail.png</file>
+        <file>assets/icons/folder.png</file>
+        <file>assets/icons/info.png</file>
+        <file>assets/icons/success.png</file>
+        <file>assets/icons/up.png</file>
+
+    </qresource>
+</RCC>

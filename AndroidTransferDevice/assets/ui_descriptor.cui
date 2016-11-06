@@ -1,0 +1,490 @@
+% UI for Android transfer program
+
+!#$<<<<< /home/ariela/repos/ColoUiDev/cuip_projects/AndroidTransferDevice/src/configs.cui
+
+% UI For the Android Slave
+
+COLOR                       | mainColor   | #a50002
+COLOR                       | white       | #FFFFFF 
+COLOR                       | black       | #000000
+COLOR                       | pbarGreen   | #008b00
+COLOR                       | lightRed    | #ff8585
+GRADIENT                    | itemBackg   | GradRadial  | #aa0000 | #000000
+GRADIENT                    | dkRedGrad   | GradVertical | #730000 | #ce000d
+
+
+ADD_FONT                    | fonts/Code New Roman b.otf
+ADD_FONT                    | fonts/Code New Roman.otf
+ADD_FONT                    | fonts/Entypo.otf
+
+
+CONFIG
+   name                        | progressBarConfig
+   shape                       | RoundRect
+   roundedRectRadious          | 20
+   height                      | 10
+   borderWidth                 | 5
+   borderColor                 | white
+   backgroundColor             | black
+   text                        | 25
+   alternativeBackgroundColor  | pbarGreen
+   width                       | 78
+   height                      | 41
+   font                        | Code New Roman | 80 | Bold
+   textColor                   | white
+DONE
+
+CONFIG
+   name                        | label
+   backgroundColor             | mainColor
+   borderColor                 | mainColor  
+   font                        | Code New Roman | 80 | Bold
+   textColor                   | white
+   height                      | 50
+   readOnly                    | true
+DONE
+
+CONFIG
+  name                        | headerConfig
+  backgroundColor             | #730000
+  borderColor                 | white
+  borderWidth                 | 10
+  textColor                   | white
+  font                        | Code New Roman | 80 | Bold  
+DONE
+
+CONFIG
+  name                        | itemConfig
+  backgroundColor             | itemBackg
+  borderColor                 | white
+  borderWidth                 | 5
+  textColor                   | white
+  font                        | Code New Roman | 70 | Bold  
+  hoverBackgroundColor        | lightRed
+  shape                       | RoundRect
+  roundedRectRadious          | 20
+  airY                        | 10
+  airX                        | 1
+DONE
+
+CONFIG
+  name                        | fontConfig
+  font                        | Code New Roman | 80 | Bold  
+DONE
+
+CONFIG 
+   name                        | buttonConfig
+   font                        | Code New Roman | 80 | Bold  
+   width                       | 23
+   height                      | 60
+   shape                       | RoundRect
+   roundedRectRadious          | 20
+   borderColor                 | white
+   borderWidth                 | 10
+   textColor                   | white
+   backgroundColor             | dkRedGrad 
+   hoverBackgroundColor        | lightRed   
+DONE
+
+CONFIG
+   name                        | textInputConfig
+   font                        | Code New Roman | 80
+   borderColor                 | white
+   borderWidth                 | 5
+   backgroundColor             | black
+   textColor                   | white
+   cursorColor                 | white   
+DONE
+
+CONFIG
+   name                        | roundButtonConfig
+   x                           | 13  
+   shape                       | Ellipse
+   width                       | 6
+   height                      | 10
+   borderWidth                 | 5   
+   borderColor                 | white
+   backgroundColor             | dkRedGrad 
+   hoverBackgroundColor        | lightRed      
+DONE
+!#$>>>>>
+DRAW_AREA
+%    width                       | 3840
+%    height                      | 2160
+   width                       | 2160
+   height                      | 3840
+   backgroundColor             | mainColor
+DONE
+
+!#$<<<<< /home/ariela/repos/ColoUiDev/cuip_projects/AndroidTransferDevice/src/viewPing.cui
+
+VIEW
+   x                           | 0
+   y                           | 0
+   width                       | 100
+   height                      | 10
+   backgroundColor             | mainColor
+   name                        | viewPing
+
+   
+   %%%%%%%%%%%%% To change the device name %%%%%%%%%%%%%%%%%%%
+   LINE_TEXT
+      useConfig                   | label
+      x                           | 5
+      y                           | 20
+      width                       | 25
+      name                        | labelDevName
+      text                        | Device Name:
+   DONE
+   
+   LINE_TEXT
+      useConfig                   | textInputConfig
+      name                        | ltDeviceName      
+      x                           | 30
+      y                           | 30
+      height                      | 30
+      width                       | 43      
+      text                        | Some device
+      airX                        | 1
+      airY                        | 5
+      xOffset                     | 30
+      yOffset                     | 40
+      virtualKeyboard             | true
+   DONE 
+   
+   %%%%%%%%%%%%% PING BUTTON AND LIGHT %%%%%%%%%%%%
+   
+   BUTTON
+      useConfig                   | buttonConfig
+      name                        | btListen      
+      x                           | 74
+      y                           | 10
+      width                       | 10
+      height                      | 70
+      iconPath                    | icons/listen.png
+      shape                       | Ellipse
+   DONE  
+   
+   BUTTON
+      name                        | btPingStatus      
+      x                           | 85
+      y                           | 10
+      width                       | 10
+      height                      | 70
+      shape                       | Ellipse
+      borderColor                 | white
+      borderWidth                 | 10
+      %backgroundColor             | pbarGreen
+      %hoverBackgroundColor        | pbarGreen
+      %alternativeBackgroundColor  | pbarGreen
+      backgroundColor             | black
+      hoverBackgroundColor        | black
+      alternativeBackgroundColor  | black
+   DONE  
+   
+DONE
+!#$>>>>>
+!#$<<<<< /home/ariela/repos/ColoUiDev/cuip_projects/AndroidTransferDevice/src/viewFileList.cui
+
+VIEW
+   x                           | 0
+   y                           | 20
+   width                       | 100
+   height                      | 50
+   backgroundColor             | mainColor
+   name                        | viewFileList
+   
+   LIST
+      name                        | listFileTransfer
+      x                           | 5
+      y                           | 5
+      height                      | 90
+      width                       | 90
+      backgroundColor             | black
+      numberOfItemsToViewInList   | 10
+      borderColor                 | white
+      borderWidth                 | 10
+      listHeaderVisible           | true
+      
+      HEADER
+         useConfig                   | headerConfig
+         x                           | 0
+         y                           | 0
+         text                        | File being transfered
+      DONE
+      
+      HEADER
+         useConfig                   | headerConfig
+         x                           | 0
+         y                           | 1
+         text                        | Stat
+      DONE
+      
+      %%%%%%%%%%%%%%%% TEST ITEMS %%%%%%%%%%%%%%%%
+      
+      ITEM
+         useConfig                   | itemConfig
+         x                           | 0
+         y                           | 0
+         text                        | File 1
+      DONE
+      
+      ITEM
+         useConfig                   | itemConfig
+         x                           | 1
+         y                           | 0
+         text                        | File 2
+      DONE
+
+      ITEM
+         useConfig                   | itemConfig
+         x                           | 2
+         y                           | 0
+         text                        | File 3
+      DONE
+
+      ITEM
+         useConfig                   | itemConfig
+         x                           | 0
+         y                           | 1
+         iconPath                    | icons/fail.png
+      DONE
+      
+      ITEM
+         useConfig                   | itemConfig
+         x                           | 1
+         y                           | 1
+         iconPath                    | icons/info.png
+      DONE
+
+      ITEM
+         useConfig                   | itemConfig
+         x                           | 2
+         y                           | 1
+         iconPath                    | icons/success.png
+      DONE
+            
+                        
+      
+   DONE
+   
+   
+DONE
+!#$>>>>>
+!#$<<<<< /home/ariela/repos/ColoUiDev/cuip_projects/AndroidTransferDevice/src/viewSearchInputFile.cui
+
+VIEW
+   x                           | 0
+   y                           | 10
+   width                       | 100
+   height                      | 10
+   backgroundColor             | mainColor
+   name                        | viewSearchInputFile
+   
+   LINE_TEXT
+      useConfig                   | label
+      name                        | labelFileInput
+      x                           | 6
+      y                           | 6
+      width                       | 60
+      height                      | 41
+      text                        | Download location
+   DONE
+   
+   LINE_TEXT
+      useConfig                   | textInputConfig
+      name                        | ltInputFile
+      readOnly                    | true
+      x                           | 5
+      y                           | 46
+      height                      | 30
+      width                       | 70
+      xOffset                     | 50
+      yOffset                     | 40
+      text                        | Prueba
+      airY                        | 4
+      airX                        | 1
+   DONE
+   
+   BUTTON
+      useConfig                   | buttonConfig
+      name                        | btSearch
+      x                           | 76
+      y                           | 20
+      text                        | Search ...
+   DONE
+   
+DONE
+!#$>>>>>
+!#$<<<<< /home/ariela/repos/ColoUiDev/cuip_projects/AndroidTransferDevice/src/viewProgress.cui
+
+VIEW
+   x                           | 0
+   y                           | 70
+   width                       | 100
+   height                      | 10
+   backgroundColor             | mainColor
+   name                        | viewProgress
+
+%%%%%%%%%%%%%%%%% PROGRESS BAR FOR CURRENT FILE %%%%%%%%%%%%%%%%%
+         
+   LINE_TEXT
+      useConfig                   | label
+      name                        | labelCFile
+      x                           | 5
+      y                           | 2
+      width                       | 20
+      height                      | 45
+      text                        | File
+      xOffset                     | 30      
+   DONE
+   
+   PROGRESSBAR
+      useConfig                   | progressBarConfig
+      name                        | pbarCurrent
+      x                           | 17
+      y                           | 6
+      text                        | 75
+   DONE
+
+%%%%%%%%%%%%%%%%% TOTAL PROGRESS BAR %%%%%%%%%%%%%%%%%
+
+   LINE_TEXT
+      useConfig                   | label
+      name                        | labelTotal
+      x                           | 5
+      y                           | 52
+      width                       | 20
+      height                      | 45
+      text                        | Total
+      xOffset                     | 5     
+   DONE
+   
+   PROGRESSBAR
+      useConfig                   | progressBarConfig
+      name                        | pbarTotal
+      x                           | 17
+      y                           | 53
+      text                        | 75
+   DONE
+            
+   
+DONE
+
+!#$>>>>>
+!#$<<<<< /home/ariela/repos/ColoUiDev/cuip_projects/AndroidTransferDevice/src/viewLog.cui
+
+VIEW
+   x                           | 0
+   y                           | 80
+   width                       | 100
+   height                      | 20
+   backgroundColor             | mainColor
+   name                        | viewLog
+   
+%    LINE_TEXT
+%       useConfig                   | label
+%       name                        | labelLog
+%       width                       | 10
+%       x                           | 45
+%       y                           | 1
+%       height                      | 15
+%       yOffset                     | 10
+%       xOffset                     | 60
+%       text                        | Information
+%    DONE
+   
+   MULTILINE_TEXT
+      name                        | mltLog
+      x                           | 5
+      y                           | 4
+      height                      | 92
+      width                       | 90
+      borderColor                 | white
+      borderWidth                 | 10
+      backgroundColor             | black
+      textColor                   | white
+      font                        | Code New Roman | 30
+      useHTML                     | true
+      xOffset                     | 10
+      yOffset                     | 5
+      text                        | <span style='font-size:70px; font-family: Code New Roman; color:#FFFFFF'>Hola<br>Mundo</span>
+   DONE
+   
+DONE
+!#$>>>>>
+!#$<<<<< /home/ariela/repos/ColoUiDev/cuip_projects/AndroidTransferDevice/src/viewSearchFile.cui
+
+VIEW
+   x                           | 0
+   y                           | 20
+   width                       | 100
+   height                      | 50
+   backgroundColor             | mainColor
+   name                        | viewSearchFile
+   
+   LIST
+   
+      name                        | listDir
+      numberOfItemsToViewInList   | 10
+      x                           | 20
+      y                           | 5
+      width                       | 75
+      height                      | 90
+      listHeaderVisible           | true
+      backgroundColor             | black
+      
+      HEADER
+         useConfig                | headerConfig
+         text                     | Current path
+      DONE
+      
+      ITEM
+         useConfig                   | itemConfig
+         x                           | 0
+         y                           | 0
+         text                        | Folder
+         iconPath                    | icons/folder.png
+         iconPosition                | Left
+      DONE
+      
+      ITEM
+         useConfig                   | itemConfig
+         x                           | 1
+         y                           | 0
+         text                        | File
+      DONE
+   
+   DONE
+   
+   BUTTON
+      useConfig                   | roundButtonConfig
+      name                        | btUp
+      y                           | 5
+      iconPath                    | icons/up.png
+   DONE
+   
+   BUTTON
+      useConfig                   | roundButtonConfig
+      name                        | btOk
+      y                           | 70
+      iconPath                    | icons/success.png
+   DONE
+
+   BUTTON
+      useConfig                   | roundButtonConfig
+      name                        | btCancel
+      y                           | 85
+      iconPath                    | icons/fail.png
+   DONE
+      
+   
+DONE
+!#$>>>>>
+TRANSITION
+   viewA                       | viewFileList
+   viewB                       | viewSearchFile
+   steps                       | 10
+   duration                    | 1
+   type                        | Up    
+DONE

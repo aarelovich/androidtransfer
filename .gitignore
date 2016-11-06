@@ -36,3 +36,15 @@ Makefile*
 # QtCtreator CMake
 CMakeLists.txt.user
 
+# Compilation folders
+AndroidFileSynchronizer/bin/
+AndroidFileSynchronizer/debug/
+AndroidTransferDevice/android/build.gradle
+AndroidTransferDevice/android/gradle/
+AndroidTransferDevice/android/gradlew
+AndroidTransferDevice/android/gradlew.bat
+AndroidTransferDevice/android/res/
+AndroidTransferDevice/androidBuild/
+AndroidTransferDevice/bin/
+
+
