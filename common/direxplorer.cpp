@@ -2,7 +2,12 @@
 
 DirExplorer::DirExplorer()
 {
-
+    QFileInfoList drives = QDir::drives();
+    if (drives.size() > 1){
+        for (qint32 i = 0; i < drives.size(); i++){
+            driveList << drives.at(i).absoluteFilePath();
+        }
+    }
 }
 
 void DirExplorer::setup(ColoUiList *list, ColoUiConfiguration itemConfigForFile, ColoUiConfiguration itemConfigForDir, bool dirOnly){
@@ -18,8 +23,11 @@ void DirExplorer::exploreStart(QString where){
 }
 
 void DirExplorer::goUp(){
-    current.cdUp();
-    listCurrent();
+    if (!current.cdUp()){
+        // Attempt to list drives windows:
+        listCurrent(true);
+    }
+    else listCurrent();
 }
 
 void DirExplorer::goInto(int rowOfDir){
@@ -37,12 +45,22 @@ void DirExplorer::goInto(int rowOfDir){
 }
 
 
-void DirExplorer::listCurrent(){
+void DirExplorer::listCurrent(bool listDrives){
 
-    QStringList list = current.entryList(QStringList(),QDir::Dirs | QDir::NoDotAndDotDot);
+    QStringList list;
     QStringList fileList;
-    if (!showOnlyDirs){
-        fileList = current.entryList(QStringList(),QDir::Files);
+    QString title;
+
+    if (!listDrives){
+        list = current.entryList(QStringList(),QDir::Dirs | QDir::NoDotAndDotDot);
+        title = current.absolutePath();
+        if (!showOnlyDirs){
+            fileList = current.entryList(QStringList(),QDir::Files);
+        }
+    }
+    else{
+        list = driveList;
+        title = "Drives";
     }
 
     dirList->clearData();
@@ -63,7 +81,7 @@ void DirExplorer::listCurrent(){
 
     // Changing the header
     ColoUiConfiguration c = dirList->getHeaderConfig(0);
-    c.set(CPR_TEXT,current.absolutePath());
+    c.set(CPR_TEXT,title);
     dirList->setHeaderConfig(c,0);
 
 }

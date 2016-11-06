@@ -21,7 +21,10 @@ private:
     ColoUiConfiguration dirItemConfig;
     bool showOnlyDirs;
 
-    void listCurrent();
+    // Drive list for windows
+    QStringList driveList;
+
+    void listCurrent(bool listDrives = false);
 };
 
 #endif // DIREXPLORER_H

@@ -6,6 +6,7 @@ AndroidTransferPC::AndroidTransferPC(QWidget *parent) : QMainWindow(parent)
     transferMaster.startTCPServer();
     connect(&transferMaster,&TransferManager::connectionEstablished,this,&AndroidTransferPC::on_slaveGreeting);
     connect(&transferMaster,&TransferManager::statusUpdate,this,&AndroidTransferPC::on_statusUpdate);
+    this->setWindowIcon(QIcon(":/assets/icons/mainicon.png"));
 }
 
 void AndroidTransferPC::setCentralWidget(QWidget *widget){

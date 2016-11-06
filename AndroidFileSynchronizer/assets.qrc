@@ -9,6 +9,6 @@
         <file>assets/icons/info.png</file>
         <file>assets/icons/success.png</file>
         <file>assets/icons/up.png</file>
-
+        <file>assets/icons/mainicon.png</file>
     </qresource>
 </RCC>
